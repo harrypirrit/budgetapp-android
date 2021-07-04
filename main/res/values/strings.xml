@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Budget App</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="previous">Previous</string>
+    <string name="begin">Begin Review</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_def_text">Title :</string>
+    <string name="type_def_text">Type?</string>
+    <string name="category_declaration_text">Categories:</string>
+    <string name="source_declaration_text">Source :</string>
+    <string name="fromdate_declaration_text">From Dates :</string>
+    <string name="todate_declaration_text">To :</string>
+    <string name="spending_box_text">Spending</string>
+    <string name="link_bank_button_text">Use Linked Bank Acct</string>
+    <string name="import_statement_button_text">Import a Statement</string>
+    <string name="add_categories_button_text">Add Category</string>
+    <string name="category_textview_string">1. Food \n2. Rent \n3. Alcohol \n4. Clothes</string>
+</resources>
