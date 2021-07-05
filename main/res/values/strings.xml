@@ -20,4 +20,8 @@
     <string name="import_statement_button_text">Import a Statement</string>
     <string name="add_categories_button_text">Add Category</string>
     <string name="category_textview_string">1. Food \n2. Rent \n3. Alcohol \n4. Clothes</string>
+    <string name="title_text">Title is : %s</string>
+    <string name="review_type_text">Review Type is : %s</string>
+    <string name="fromdate_text">From Date : %s</string>
+    <string name="todate_text">To Date : %s</string>
 </resources>

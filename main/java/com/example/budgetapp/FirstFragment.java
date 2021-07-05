@@ -1,6 +1,6 @@
 package com.example.budgetapp;
 
-import android.app.ActionBar;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,9 +11,6 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.budgetapp.databinding.FragmentFirstBinding;
-import androidx.navigation.ui.AppBarConfiguration;
-
-import static android.app.ActionBar.*;
 
 public class FirstFragment extends Fragment {
 
@@ -43,8 +40,21 @@ public class FirstFragment extends Fragment {
         binding.buttonBegin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // create a bundle with form information
+
+                // variables
+                String title = binding.titleText.getText().toString();
+                String type = "EaRnInG";
+                String categories = binding.categoryTextview.getText().toString();
+                String fromDate = binding.fromdateDate.getText().toString();
+                String toDate = binding.todateDate.getText().toString();
+
+                //FirstFragment.this.setArguments(bundle);
+                FirstFragmentDirections.ActionFirstFragmentToSecondFragment action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(title, type, categories, fromDate, toDate);
+
                 NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
+                    //.navigate(R.id.action_FirstFragment_to_SecondFragment);
+                      .navigate(action);
             }
         });
     }

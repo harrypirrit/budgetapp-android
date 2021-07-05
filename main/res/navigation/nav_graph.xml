@@ -24,5 +24,25 @@
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+        <argument
+            android:name="title"
+            app:argType="string"
+            />
+        <argument
+            android:name="type"
+            app:argType="string"
+            />
+        <argument
+            android:name="categories"
+            app:argType="string"
+            />
+        <argument
+            android:name="fromDate"
+            app:argType="string"
+            />
+        <argument
+            android:name="toDate"
+            app:argType="string"
+            />
     </fragment>
 </navigation>
