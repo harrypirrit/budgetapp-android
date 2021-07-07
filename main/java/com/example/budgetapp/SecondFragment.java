@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -12,6 +13,17 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 
 import com.example.budgetapp.databinding.FragmentSecondBinding;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import budgetapp.*;
+
+import static budgetapp.CSVIterator.createData;
+import static budgetapp.CSVIterator.createList;
+import static budgetapp.CSVIterator.filterData;
+import static budgetapp.UserIterator.categorizeItems;
+import static budgetapp.UserIterator.initCategories;
 
 public class SecondFragment extends Fragment {
 
@@ -23,14 +35,41 @@ public class SecondFragment extends Fragment {
             Bundle savedInstanceState
     ) {
         binding = FragmentSecondBinding.inflate(inflater, container, false);
+        /** execute backend files from form data */
+        String CSV_Path = "/users/harrypirrit/Desktop/Code/19JulytoAugust.csv";
+
+        // CSVIterator
+        List<String[]> data = createData(CSV_Path);
+        List<String[]> filtered_data = filterData(data);
+        ArrayList<Item> itemList = createList(filtered_data);
+
+        // this currently isn't getting any data because it looks like data is empty.
+        Toast myToast = Toast.makeText(getActivity(), data.get(0)[0], Toast.LENGTH_SHORT);
+        myToast.show();
+
+        //UserIterator
+        Category[] categoryList = initCategories();
+        itemList = categorizeItems(itemList, categoryList);
+
+        String test;
+
+        if (itemList.size() > 0) {
+            test = itemList.get(1).description;
+        }
+        else {
+            test = "FAIL";
+        }
+
+
+        /** create bundle */
         Bundle bundle = this.getArguments();
         if (bundle != null) {
-            String title = bundle.getString("title");
+            //String title = bundle.getString("title");
+            String title = test;
             String type = bundle.getString("type");
             String categories = bundle.getString("categories");
             String fromDate = bundle.getString("fromDate");
             String toDate = bundle.getString("toDate");
-
         }
 
         return binding.getRoot();
@@ -40,12 +79,7 @@ public class SecondFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // make secondFragment retrieve the Form data from the StartReview Page.
-            // currently temporary values.
-            //      Integer count = SecondFragmentArgs.fromBundle(getArguments()).getMyArg();
-
-        //Integer count = FirstFragmentArgs.fromBundle(getArguments()).getMyArg();
-
+        // retrieve variables from Arguments
         String title = SecondFragmentArgs.fromBundle(getArguments()).getTitle();
         String titleText = getString(R.string.title_text, title);
         TextView title_view = binding.titleDisplayText;

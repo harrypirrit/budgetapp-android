@@ -123,7 +123,6 @@
         android:layout_marginStart="56dp"
         android:layout_marginTop="100dp"
         android:background="@drawable/edittext_frame"
-        android:backgroundTint="@color/deep_blue"
         android:text="Earning"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/type_declaration"
