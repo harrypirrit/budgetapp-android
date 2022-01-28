@@ -17,14 +17,16 @@ public class AppCall {
 		// CSVIterator
 		List<String[]> data = createData(CSV_Path);
 		List<String[]> filtered_data = filterData(data);
+
 		ArrayList<Item> itemList = createList(filtered_data);
+		Item[] itemArray;
 
 		//UserIterator
 		Category[] categoryList = initCategories();
-		itemList = categorizeItems(itemList, categoryList);
+		itemArray = categorizeItems(itemList, categoryList);
 
 		//Summary
-		updateCategoryData(itemList, categoryList);
+		updateCategoryData(itemArray, categoryList);
 		displaySummary(categoryList);
 
 

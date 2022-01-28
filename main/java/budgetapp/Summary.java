@@ -10,7 +10,7 @@ public class Summary {
 	 * @param itemList
 	 * @param categoryList
 	 */
-	public static void updateCategoryData(ArrayList<Item> itemList, Category[] categoryList){
+	public static void updateCategoryData(Item[] itemList, Category[] categoryList){
 
 		for (Item item : itemList){
 			for (Category cat : categoryList){

@@ -1,5 +1,12 @@
 package com.example.budgetapp;
 
+import static budgetapp.CSVIterator.createData;
+import static budgetapp.CSVIterator.createList;
+import static budgetapp.CSVIterator.filterData;
+import static budgetapp.UserIterator.categorizeItems;
+import static budgetapp.UserIterator.initCategories;
+
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +18,16 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.budgetapp.databinding.FragmentFirstBinding;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
+import budgetapp.Category;
+import budgetapp.Item;
 
 public class FirstFragment extends Fragment {
 
@@ -40,7 +57,7 @@ public class FirstFragment extends Fragment {
         binding.buttonBegin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // create a bundle with form information
+                // create an (action) bundle with form information
 
                 // variables
                 String title = binding.titleText.getText().toString();
@@ -49,8 +66,63 @@ public class FirstFragment extends Fragment {
                 String fromDate = binding.fromdateDate.getText().toString();
                 String toDate = binding.todateDate.getText().toString();
 
-                //FirstFragment.this.setArguments(bundle);
-                FirstFragmentDirections.ActionFirstFragmentToSecondFragment action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(title, type, categories, fromDate, toDate);
+                /** execute backend files from form data */
+                String CSV_Path = "src/main/assets/19Julytestcopy.csv";
+
+                System.out.println("--- -- -- SECTION -- -- ---");
+
+                Context context = getContext();
+                InputStream iS = null;
+
+                try {
+                    iS = context.getAssets().open("19Julytestcopy.csv");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                BufferedReader reader = new BufferedReader(new InputStreamReader(iS));
+                try {
+                    String s = reader.readLine();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    System.out.println("BUFFERED READER NULL");
+                }
+
+
+                // CSVIterator
+                List<String[]> data = createData(reader);
+                List<String[]> filtered_data = filterData(data);
+
+                ArrayList<Item> itemList = createList(filtered_data);
+                Item[] itemArray;
+                int number = 0;
+
+                //UserIterator
+                Category[] categoryList = initCategories();
+                itemArray = categorizeItems(itemList, categoryList);
+
+                String test;
+
+                if (itemList.size() > 0) {
+                    test = itemList.get(1).description;
+                }
+                else {
+                    test = "FAIL";
+                }
+
+                System.out.println(test);
+
+                System.out.println("--- -- -- RETRIEVING ALL ITEMS FROM ITEMLIST -- -- ---");
+                for(int i = 0; i < itemList.size(); i++){
+                    System.out.println(itemList.get(i).description);
+                }
+                System.out.println("-- -- -- -- -- --- -- ---");
+
+
+
+
+                // create an action object filled with arguments that are to be passed in the .navigate() call
+                FirstFragmentDirections.ActionFirstFragmentToSecondFragment action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(itemArray, number, title, type, categories, fromDate, toDate);
 
                 NavHostFragment.findNavController(FirstFragment.this)
                     //.navigate(R.id.action_FirstFragment_to_SecondFragment);

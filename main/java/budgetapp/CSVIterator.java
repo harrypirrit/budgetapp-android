@@ -27,9 +27,17 @@ public class CSVIterator {
 		}
 	}
 
+	public static void fetchFile(BufferedReader reader){
+		try{
+			BufferedReader csvReader = reader;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	/**
 	 * Creates initial List of unfiltered data.
-	 * @param path
+	 * @param reader
 	 * @return a List of String Arrays containing CSV rows and their contents.
 	 */
 	public static List<String[]> createData(String path){
@@ -48,7 +56,30 @@ public class CSVIterator {
 			catch (NullPointerException e){
 			}
 		}
-		catch (FileNotFoundException e1) {
+		catch (Exception e1) {
+			System.out.println("Incorrect File PATH :" +CSV_Path);
+			System.out.println("Returning Empty Data");
+		}
+		return data;
+	}
+
+
+	public static List<String[]> createData(BufferedReader reader){
+		List <String[]> data = new ArrayList<String[]>();
+		try {
+			BufferedReader csvReader = reader;
+			try {
+				while((csvReader.readLine()) != null) {
+					String row = csvReader.readLine();
+					data.add(row.split(","));
+				}
+			} catch (IOException e){
+				System.out.println("IOException Error : " +e);
+			}
+			catch (NullPointerException e){
+			}
+		}
+		catch (Exception e1) {
 			System.out.println("Incorrect File PATH :" +CSV_Path);
 			System.out.println("Returning Empty Data");
 		}

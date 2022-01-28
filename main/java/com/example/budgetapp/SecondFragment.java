@@ -1,5 +1,6 @@
 package com.example.budgetapp;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +15,16 @@ import androidx.navigation.ui.AppBarConfiguration;
 
 import com.example.budgetapp.databinding.FragmentSecondBinding;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import android.content.Context;
 
 import budgetapp.*;
 
@@ -35,37 +44,12 @@ public class SecondFragment extends Fragment {
             Bundle savedInstanceState
     ) {
         binding = FragmentSecondBinding.inflate(inflater, container, false);
-        /** execute backend files from form data */
-        String CSV_Path = "/users/harrypirrit/Desktop/Code/19JulytoAugust.csv";
-
-        // CSVIterator
-        List<String[]> data = createData(CSV_Path);
-        List<String[]> filtered_data = filterData(data);
-        ArrayList<Item> itemList = createList(filtered_data);
-
-        // this currently isn't getting any data because it looks like data is empty.
-        Toast myToast = Toast.makeText(getActivity(), data.get(0)[0], Toast.LENGTH_SHORT);
-        myToast.show();
-
-        //UserIterator
-        Category[] categoryList = initCategories();
-        itemList = categorizeItems(itemList, categoryList);
-
-        String test;
-
-        if (itemList.size() > 0) {
-            test = itemList.get(1).description;
-        }
-        else {
-            test = "FAIL";
-        }
 
 
-        /** create bundle */
+        /** create bundle for review data */
         Bundle bundle = this.getArguments();
         if (bundle != null) {
-            //String title = bundle.getString("title");
-            String title = test;
+            String title = bundle.getString("title");
             String type = bundle.getString("type");
             String categories = bundle.getString("categories");
             String fromDate = bundle.getString("fromDate");
@@ -76,7 +60,7 @@ public class SecondFragment extends Fragment {
 
     }
 
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState)    {
         super.onViewCreated(view, savedInstanceState);
 
         // retrieve variables from Arguments
@@ -106,7 +90,7 @@ public class SecondFragment extends Fragment {
         toDate_view.setText(toDateText);
 
 
-        binding.buttonSecond.setOnClickListener(new View.OnClickListener() {
+        binding.buttonExit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(SecondFragment.this)

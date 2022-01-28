@@ -25,6 +25,14 @@
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
         <argument
+            android:name="itemArray"
+            app:argType="budgetapp.Item[]"
+            />
+        <argument
+            android:name="number"
+            app:argType="integer"
+            />
+        <argument
             android:name="title"
             app:argType="string"
             />

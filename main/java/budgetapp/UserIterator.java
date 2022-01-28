@@ -26,7 +26,8 @@ public class UserIterator {
 	 * @param categoryList
 	 * @return
 	 */
-	public static ArrayList<Item> categorizeItems(ArrayList<Item> itemList, Category[] categoryList){
+	public static Item[] categorizeItems(ArrayList<Item> itemList, Category[] categoryList){
+		Item[] itemArray;
 
 		for (Item item : itemList){
 			int rInt = R.nextInt(categoryList.length);
@@ -37,8 +38,8 @@ public class UserIterator {
 				if (categoryInput.equals(cat.name)){ item.category = cat;
 				}
 			}
-		
+
 		}		
-		return itemList;
+		return itemList.toArray(new Item[0]);
 	}
 }
