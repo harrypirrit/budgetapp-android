@@ -4,7 +4,7 @@
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
-    <string name="previous">Previous</string>
+    <string name="exit">Exit</string>
     <string name="begin">Begin Review</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>

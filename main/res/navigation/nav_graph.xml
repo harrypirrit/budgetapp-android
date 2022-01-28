@@ -14,16 +14,18 @@
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.budgetapp.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_FirstFragment_to_ReviewScreen"
+            app:destination="@id/reviewScreen" />
+        <argument
+            android:name="itemArray"
+            app:argType="budgetapp.Item[]"
+            />
+        <argument
+            android:name="count"
+            app:argType="integer"
+            />
         <argument
             android:name="title"
             app:argType="string"
@@ -44,5 +46,56 @@
             android:name="toDate"
             app:argType="string"
             />
+    </fragment>
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="com.example.budgetapp.SecondFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_second">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+        <argument
+            android:name="itemArray"
+            app:argType="budgetapp.Item[]"
+            />
+        <argument
+            android:name="count"
+            app:argType="integer"
+            />
+        <argument
+            android:name="title"
+            app:argType="string"
+            />
+        <argument
+            android:name="type"
+            app:argType="string"
+            />
+        <argument
+            android:name="categories"
+            app:argType="string"
+            />
+        <argument
+            android:name="fromDate"
+            app:argType="string"
+            />
+        <argument
+            android:name="toDate"
+            app:argType="string"
+            />
+        <action
+            android:id="@+id/action_SecondFragment_self"
+            app:destination="@id/SecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/reviewScreen"
+        android:name="com.example.budgetapp.ReviewScreen"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/review_screen">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
     </fragment>
 </navigation>

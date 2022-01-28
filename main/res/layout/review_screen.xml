@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondFragment">
+    tools:context=".ReviewScreen">
 
     <TextView
         android:id="@+id/textview_divider"
@@ -33,7 +33,7 @@
     <Button
         android:id="@+id/button_exit"
         android:layout_width="75dp"
-        android:layout_height="48dp"
+        android:layout_height="45dp"
         android:layout_marginStart="24dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/red"
@@ -45,13 +45,11 @@
         android:id="@+id/button_add"
         android:layout_width="116dp"
         android:layout_height="62dp"
-        android:layout_marginBottom="124dp"
         android:backgroundTint="@android:color/holo_green_dark"
         android:text="Add New Category"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="550dp" />
 
     <Button
         android:id="@+id/button_cat"
@@ -118,9 +116,8 @@
         android:text="%s"
         android:textColor="@color/black"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_amount" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_amount"
+        tools:layout_editor_absoluteX="190dp" />
 
     <TextView
         android:id="@+id/textview_amount"
@@ -130,48 +127,42 @@
         android:text="%s"
         android:textColor="@color/black"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_date" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_date"
+        tools:layout_editor_absoluteX="190dp" />
 
     <TextView
         android:id="@+id/textview_itemNo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="Item : %s"
         android:textColor="@color/black"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.89"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="301dp"
+        tools:layout_editor_absoluteY="16dp" />
 
     <Button
         android:id="@+id/button_skip"
         android:layout_width="61dp"
-        android:layout_height="48dp"
+        android:layout_height="41dp"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="12dp"
         android:layout_marginEnd="84dp"
         android:text="skip"
         android:textSize="8sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_add"
-        app:layout_constraintTop_toBottomOf="@+id/button_add" />
+        tools:layout_editor_absoluteY="619dp" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="61dp"
-        android:layout_height="48dp"
+        android:layout_height="41dp"
         android:layout_marginStart="84dp"
-        android:layout_marginTop="12dp"
         android:layout_marginEnd="3dp"
         android:backgroundTint="#FFC800"
         android:text="back"
         android:textSize="8sp"
         app:layout_constraintEnd_toStartOf="@+id/button_add"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_add" />
+        tools:layout_editor_absoluteY="619dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
