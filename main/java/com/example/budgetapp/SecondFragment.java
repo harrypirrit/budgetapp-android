@@ -111,7 +111,7 @@ public class SecondFragment extends Fragment {
 
         });
 
-        binding.buttonCat.setOnClickListener(new View.OnClickListener() {
+        binding.buttonCat2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Category category = new Category(String.valueOf(binding.buttonCat2.getText()));

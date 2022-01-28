@@ -2,10 +2,13 @@ package budgetapp;
 
 import java.io.*;
 import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class CSVIterator {
 	/** fields */
@@ -39,7 +42,7 @@ public class CSVIterator {
 
 	/**
 	 * Creates initial List of unfiltered data.
-	 * @param reader
+	 * @param path
 	 * @return a List of String Arrays containing CSV rows and their contents.
 	 */
 	public static List<String[]> createData(String path){
@@ -132,11 +135,19 @@ public class CSVIterator {
 			String description = row[1];
 			BigDecimal amount = new BigDecimal(row[2]);
 
+
+
 			// Format Date
-			String pattern = "dd/MM/yyyy";
-			SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-			date = simpleDateFormat.format(new Date() );
-			
+			DateFormat originalFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.ENGLISH);
+			DateFormat targetFormat = new SimpleDateFormat("dd/MM/yyyy");
+			Date dateFormat = null;
+			try {
+				dateFormat = originalFormat.parse(date);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+			date = targetFormat.format(dateFormat);
+
 			Item item = new Item(date, description, amount);
 			itemList.add(item);
 			count++;
