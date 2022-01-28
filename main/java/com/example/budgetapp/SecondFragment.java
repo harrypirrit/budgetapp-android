@@ -53,7 +53,7 @@ public class SecondFragment extends Fragment {
             int count = bundle.getInt("count");
             String title = bundle.getString("title");
             String type = bundle.getString("type");
-            String categories = bundle.getString("categories");
+            String[] categories = bundle.getStringArray("categories");
             String fromDate = bundle.getString("fromDate");
             String toDate = bundle.getString("toDate");
         }
@@ -68,7 +68,7 @@ public class SecondFragment extends Fragment {
         // get Review data
         String title = SecondFragmentArgs.fromBundle(getArguments()).getTitle();
         String type = SecondFragmentArgs.fromBundle(getArguments()).getType();;
-        String categories = SecondFragmentArgs.fromBundle(getArguments()).getCategories();
+        String[] categories = SecondFragmentArgs.fromBundle(getArguments()).getCategories();
         String fromDate = SecondFragmentArgs.fromBundle(getArguments()).getFromDate();
         String toDate = SecondFragmentArgs.fromBundle(getArguments()).getToDate();
 
@@ -92,9 +92,59 @@ public class SecondFragment extends Fragment {
         itemNo_view.setText(String.valueOf(count));
 
 
-//        System.out.println("-- -- -- -- -- -- -- -- --");
-//        System.out.println(String.format("Item 1: %s", itemArray[0].description));
-//        System.out.println("-- -- -- -- -- -- -- -- --");
+        // Set Buttons to Current Category Data
+        binding.buttonCat.setText(categories[0]);
+        binding.buttonCat2.setText(categories[1]);
+        binding.buttonCat3.setText(categories[2]);
+        binding.buttonCat4.setText(categories[3]);
+
+
+        // Category Buttons
+        binding.buttonCat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Category category = new Category(String.valueOf(binding.buttonCat.getText()));
+                item.category = category;
+
+                binding.buttonSkip.performClick();
+            }
+
+        });
+
+        binding.buttonCat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Category category = new Category(String.valueOf(binding.buttonCat2.getText()));
+                item.category = category;
+
+                binding.buttonSkip.performClick();
+            }
+
+        });
+
+        binding.buttonCat3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Category category = new Category(String.valueOf(binding.buttonCat3.getText()));
+                item.category = category;
+
+                binding.buttonSkip.performClick();
+            }
+
+        });
+
+        binding.buttonCat4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Category category = new Category(String.valueOf(binding.buttonCat4.getText()));
+                item.category = category;
+
+                binding.buttonSkip.performClick();
+            }
+
+        });
+
+
 
 
         binding.buttonSkip.setOnClickListener(new View.OnClickListener() {

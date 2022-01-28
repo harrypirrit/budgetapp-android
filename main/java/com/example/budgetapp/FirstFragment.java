@@ -62,7 +62,11 @@ public class FirstFragment extends Fragment {
                 // variables
                 String title = binding.titleText.getText().toString();
                 String type = "EaRnInG";
-                String categories = binding.categoryTextview.getText().toString();
+                // String categories = binding.categoryTextview.getText().toString();
+                String[] categories = {"Food", "Rent", "Alcohol", "Other"};
+
+                System.out.println("Categories :");
+                System.out.print(categories);
                 String fromDate = binding.fromdateDate.getText().toString();
                 String toDate = binding.todateDate.getText().toString();
 
