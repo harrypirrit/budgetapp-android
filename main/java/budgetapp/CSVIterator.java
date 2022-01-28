@@ -4,6 +4,8 @@ import java.io.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class CSVIterator {
 	/** fields */
@@ -129,6 +131,11 @@ public class CSVIterator {
 			String date = row[0];
 			String description = row[1];
 			BigDecimal amount = new BigDecimal(row[2]);
+
+			// Format Date
+			String pattern = "dd/MM/yyyy";
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+			date = simpleDateFormat.format(new Date() );
 			
 			Item item = new Item(date, description, amount);
 			itemList.add(item);
