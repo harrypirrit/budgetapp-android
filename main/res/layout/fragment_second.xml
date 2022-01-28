@@ -4,19 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondFragment">
+    tools:context=".SecondFragment"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="1dp">
 
     <TextView
         android:id="@+id/textview_divider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="168dp"
         android:text="-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_description" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_itemNo" />
 
     <TextView
         android:id="@+id/textview_select"
@@ -59,7 +62,7 @@
         android:layout_height="83dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="24dp"
-        android:backgroundTint="@color/blue"
+        android:backgroundTint="@color/project_teal"
         android:text="CAT1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_select" />
@@ -70,7 +73,7 @@
         android:layout_height="83dp"
         android:layout_marginStart="63dp"
         android:layout_marginTop="24dp"
-        android:backgroundTint="@color/blue"
+        android:backgroundTint="@color/project_teal"
         android:text="CAT2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.071"
@@ -83,7 +86,7 @@
         android:layout_height="83dp"
         android:layout_marginStart="64dp"
         android:layout_marginTop="44dp"
-        android:backgroundTint="@color/blue"
+        android:backgroundTint="@color/project_teal"
         android:text="CAT4"
         app:layout_constraintStart_toEndOf="@+id/button_cat4"
         app:layout_constraintTop_toBottomOf="@+id/button_cat2" />
@@ -94,7 +97,7 @@
         android:layout_height="83dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="44dp"
-        android:backgroundTint="@color/blue"
+        android:backgroundTint="@color/project_teal"
         android:text="CAT3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_cat" />
@@ -103,22 +106,26 @@
         android:id="@+id/textview_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="8dp"
         android:text="Date : %s"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_itemNo" />
 
     <TextView
         android:id="@+id/textview_description"
-        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:text="%s"
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_amount" />
 
@@ -126,11 +133,12 @@
         android:id="@+id/textview_amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="12dp"
         android:text="%s"
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_date" />
 
@@ -157,6 +165,7 @@
         android:text="skip"
         android:textSize="8sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/button_add"
         app:layout_constraintTop_toBottomOf="@+id/button_add" />
 
@@ -171,6 +180,7 @@
         android:text="back"
         android:textSize="8sp"
         app:layout_constraintEnd_toStartOf="@+id/button_add"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_add" />
 
