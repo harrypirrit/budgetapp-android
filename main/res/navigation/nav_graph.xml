@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/FirstFragment"
         android:name="com.example.budgetapp.FirstFragment"
-        android:label="@string/first_fragment_label"
+        android:label="@string/start_a_review_label"
         tools:layout="@layout/fragment_first">
 
         <action
@@ -36,7 +36,7 @@
             />
         <argument
             android:name="categories"
-            app:argType="string"
+            app:argType="string[]"
             />
         <argument
             android:name="fromDate"
@@ -50,7 +50,7 @@
     <fragment
         android:id="@+id/SecondFragment"
         android:name="com.example.budgetapp.SecondFragment"
-        android:label="@string/second_fragment_label"
+        android:label="@string/item_review_label"
         tools:layout="@layout/fragment_second">
 
         <action
@@ -74,7 +74,7 @@
             />
         <argument
             android:name="categories"
-            app:argType="string"
+            app:argType="string[]"
             />
         <argument
             android:name="fromDate"
@@ -91,7 +91,7 @@
     <fragment
         android:id="@+id/reviewScreen"
         android:name="com.example.budgetapp.ReviewScreen"
-        android:label="@string/first_fragment_label"
+        android:label="@string/start_a_review_label"
         tools:layout="@layout/review_screen">
 
         <action
