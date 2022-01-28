@@ -95,7 +95,7 @@ public class FirstFragment extends Fragment {
 
                 ArrayList<Item> itemList = createList(filtered_data);
                 Item[] itemArray;
-                int number = 0;
+                int count = 0;
 
                 //UserIterator
                 Category[] categoryList = initCategories();
@@ -122,7 +122,7 @@ public class FirstFragment extends Fragment {
 
 
                 // create an action object filled with arguments that are to be passed in the .navigate() call
-                FirstFragmentDirections.ActionFirstFragmentToSecondFragment action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(itemArray, number, title, type, categories, fromDate, toDate);
+                FirstFragmentDirections.ActionFirstFragmentToSecondFragment action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(itemArray, count, title, type, categories, fromDate, toDate);
 
                 NavHostFragment.findNavController(FirstFragment.this)
                     //.navigate(R.id.action_FirstFragment_to_SecondFragment);

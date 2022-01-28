@@ -49,6 +49,8 @@ public class SecondFragment extends Fragment {
         /** create bundle for review data */
         Bundle bundle = this.getArguments();
         if (bundle != null) {
+            Item[] itemArray = (Item[]) bundle.get("itemList");
+            int count = bundle.getInt("count");
             String title = bundle.getString("title");
             String type = bundle.getString("type");
             String categories = bundle.getString("categories");
@@ -63,32 +65,66 @@ public class SecondFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState)    {
         super.onViewCreated(view, savedInstanceState);
 
-        // retrieve variables from Arguments
+        // get Review data
         String title = SecondFragmentArgs.fromBundle(getArguments()).getTitle();
-        String titleText = getString(R.string.title_text, title);
-        TextView title_view = binding.titleDisplayText;
-        title_view.setText(titleText);
-
-        String type = "Earning_test";
-        String typeText = getString(R.string.review_type_text, type);
-        TextView review_type = binding.reviewTypeDisplayText;
-        review_type.setText(typeText);
-
+        String type = SecondFragmentArgs.fromBundle(getArguments()).getType();;
         String categories = SecondFragmentArgs.fromBundle(getArguments()).getCategories();
-        String categoriesText = categories;
-        TextView categories_view = binding.categoriesDisplayText;
-        categories_view.setText(categoriesText);
-
         String fromDate = SecondFragmentArgs.fromBundle(getArguments()).getFromDate();
-        String fromDateText = String.format("From Date : %s.", fromDate);
-        TextView fromDate_view = binding.fromDateDisplayText;
-        fromDate_view.setText(fromDateText);
-
         String toDate = SecondFragmentArgs.fromBundle(getArguments()).getToDate();
-        String toDateText = String.format("To Date : %s.", toDate);
-        TextView toDate_view = binding.toDateDisplayText;
-        toDate_view.setText(toDateText);
 
+        // retrieve variables from Arguments
+
+        int count = SecondFragmentArgs.fromBundle(getArguments()).getCount();
+        Item[] itemArray = SecondFragmentArgs.fromBundle(getArguments()).getItemArray();
+        Item item = itemArray[count];
+
+        // set to current item variables
+        TextView date_view = binding.textviewDate;
+        date_view.setText(item.date);
+
+        TextView description_view = binding.textviewDescription;
+        description_view.setText(item.description);
+
+        TextView amount_view = binding.textviewAmount;
+        amount_view.setText(item.amount.toString());
+
+        TextView itemNo_view = binding.textviewItemNo;
+        itemNo_view.setText(String.valueOf(count));
+
+
+//        System.out.println("-- -- -- -- -- -- -- -- --");
+//        System.out.println(String.format("Item 1: %s", itemArray[0].description));
+//        System.out.println("-- -- -- -- -- -- -- -- --");
+
+
+        binding.buttonSkip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int count = Integer.parseInt(binding.textviewItemNo.getText().toString());
+                count++;
+
+                if(count < itemArray.length) {
+                    Item item = itemArray[count];
+
+                    // set to current item variables
+                    TextView date_view = binding.textviewDate;
+                    date_view.setText(item.date);
+
+                    TextView description_view = binding.textviewDescription;
+                    description_view.setText(item.description);
+
+                    TextView amount_view = binding.textviewAmount;
+                    amount_view.setText(item.amount.toString());
+
+                    TextView itemNo_view = binding.textviewItemNo;
+                    itemNo_view.setText(String.valueOf(count));
+                }
+                else {
+                    // REDIRECT TO SUMMARY SCREEN
+                    System.out.println("FINAL ITEM REACHED");
+                }
+            }
+        });
 
         binding.buttonExit.setOnClickListener(new View.OnClickListener() {
             @Override
