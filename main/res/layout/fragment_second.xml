@@ -48,12 +48,12 @@
         android:id="@+id/button_add"
         android:layout_width="116dp"
         android:layout_height="62dp"
-        android:layout_marginBottom="124dp"
+        android:layout_marginBottom="116dp"
         android:backgroundTint="@android:color/holo_green_dark"
         android:text="Add New Category"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -155,33 +155,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button_skip"
-        android:layout_width="61dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="84dp"
-        android:text="skip"
-        android:textSize="8sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/button_add"
-        app:layout_constraintTop_toBottomOf="@+id/button_add" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="61dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="3dp"
-        android:backgroundTint="#FFC800"
-        android:text="back"
-        android:textSize="8sp"
-        app:layout_constraintEnd_toStartOf="@+id/button_add"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_add" />
+        android:id="@+id/button_skip"
+        android:layout_width="87dp"
+        android:layout_height="57dp"
+        android:layout_marginEnd="160dp"
+        android:backgroundTint="@color/project_yellow"
+        android:text="skip"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="622dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton_back"
+        android:layout_width="63dp"
+        android:layout_height="65dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:background="@null"
+        android:src="@mipmap/rs_arrow_new_foreground"
+        app:layout_constraintBottom_toTopOf="@+id/button_exit"
+        app:layout_constraintEnd_toStartOf="@+id/button_add" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
