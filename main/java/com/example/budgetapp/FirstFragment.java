@@ -72,6 +72,7 @@ public class FirstFragment extends Fragment {
 
                 /** execute backend files from form data */
                 String CSV_Path = "src/main/assets/19Julytestcopy.csv";
+                String FILENAME = "19JulytoAugust.csv";
 
                 System.out.println("--- -- -- SECTION -- -- ---");
 
@@ -79,7 +80,7 @@ public class FirstFragment extends Fragment {
                 InputStream iS = null;
 
                 try {
-                    iS = context.getAssets().open("19Julytestcopy.csv");
+                    iS = context.getAssets().open(FILENAME);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -113,17 +114,6 @@ public class FirstFragment extends Fragment {
                 else {
                     test = "FAIL";
                 }
-
-                System.out.println(test);
-
-                System.out.println("--- -- -- RETRIEVING ALL ITEMS FROM ITEMLIST -- -- ---");
-                for(int i = 0; i < itemList.size(); i++){
-                    System.out.println(itemList.get(i).description);
-                }
-                System.out.println("-- -- -- -- -- --- -- ---");
-
-
-
 
                 // create an action object filled with arguments that are to be passed in the .navigate() call
                 FirstFragmentDirections.ActionFirstFragmentToSecondFragment action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(itemArray, count, title, type, categories, fromDate, toDate);
