@@ -64,17 +64,13 @@ public class FirstFragment extends Fragment {
                 String type = "EaRnInG";
                 // String categories = binding.categoryTextview.getText().toString();
                 String[] categories = {"Food", "Rent", "Alcohol", "Other"};
-
-                System.out.println("Categories :");
-                System.out.print(categories);
+                
                 String fromDate = binding.fromdateDate.getText().toString();
                 String toDate = binding.todateDate.getText().toString();
 
                 /** execute backend files from form data */
                 String CSV_Path = "src/main/assets/19Julytestcopy.csv";
                 String FILENAME = "19JulytoAugust.csv";
-
-                System.out.println("--- -- -- SECTION -- -- ---");
 
                 Context context = getContext();
                 InputStream iS = null;
