@@ -68,7 +68,7 @@ public class FirstFragment extends Fragment {
 
                 /** execute backend files from form data */
                 String CSV_Path = "src/main/assets/19Julytestcopy.csv";
-                String FILENAME = "19JulytoAugust.csv";
+                String FILENAME = "19Julytestcopy.csv";
 
                 Context context = getContext();
                 InputStream iS = null;
@@ -97,7 +97,6 @@ public class FirstFragment extends Fragment {
                 int count = 0;
 
                 //UserIterator
-                Category[] categoryList = initCategories(categories);
                 itemArray = itemList.toArray(new Item[0]);
 
                 // test -- to be updated
