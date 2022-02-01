@@ -83,5 +83,14 @@
         <action
             android:id="@+id/action_SecondFragment_self"
             app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_SecondFragment_to_ThirdFragment"
+            app:destination="@id/ThirdFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ThirdFragment"
+        android:name="com.example.budgetapp.ThirdFragment"
+        android:label="@string/review_summary_label"
+        tools:layout="@layout/fragment_third">
     </fragment>
 </navigation>
