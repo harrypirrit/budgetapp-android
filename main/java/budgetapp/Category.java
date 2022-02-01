@@ -7,16 +7,17 @@ public class Category {
 	/** fields */
 	public String name; 
 	public BigDecimal dollarTotal;
-	public ArrayList<Item> items = new ArrayList<Item>();
-	public int size = items.size();
+	public int size;
 
 	/** Constructor */
 	public Category(String n){
 		this.name = n;
+		this.dollarTotal = BigDecimal.valueOf(0);
+		this.size = 0;
 	}
 
 	/** toString method */
-	public String toString(){
+	public String toString() {
 		return ""+this.name;
 	}
 	
