@@ -23,6 +23,7 @@ import java.io.InputStreamReader;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
@@ -34,6 +35,7 @@ import static budgetapp.CSVIterator.createData;
 import static budgetapp.CSVIterator.createList;
 import static budgetapp.CSVIterator.filterData;
 import static budgetapp.UserIterator.initCategories;
+import static budgetapp.Summary.displaySummary;
 
 public class SecondFragment extends Fragment {
 
@@ -94,8 +96,7 @@ public class SecondFragment extends Fragment {
 
 
         TextView itemNoDisplay_view = binding.textviewItemNoDisplay;
-        String length = String.valueOf(itemArray.length-1);
-        String itemNo = String.format(Locale.getDefault(), "Item #%s/%s", String.valueOf(count), length);
+        String itemNo = String.format(Locale.getDefault(), "Item #%s/%s", String.valueOf(count), String.valueOf(itemArray.length));
         itemNoDisplay_view.setText(itemNo);
 
         // Set Buttons to Current Category Data
@@ -104,13 +105,24 @@ public class SecondFragment extends Fragment {
         binding.buttonCat3.setText(categories[2]);
         binding.buttonCat4.setText(categories[3]);
 
+        // make this initCategories method
+        HashMap<String, Category> categoryHashMap = new HashMap<String, Category>();
+        for (String category : categories){
+            categoryHashMap.put(category, new Category(category));
+        }
+
 
         // Category Buttons
         binding.buttonCat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Category category = new Category(String.valueOf(binding.buttonCat.getText()));
-                item.category = category;
+                Category category;
+                if ((category = categoryHashMap.get(binding.buttonCat.getText())) != null){
+                    category.size++;
+                    category.dollarTotal.add(item.amount);
+
+                    System.out.println(category);
+                }
 
                 binding.buttonSkip.performClick();
             }
@@ -152,7 +164,6 @@ public class SecondFragment extends Fragment {
 
 
 
-
         binding.buttonSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -176,13 +187,15 @@ public class SecondFragment extends Fragment {
                     itemNo_view.setText(String.valueOf(count));
 
                     TextView itemNoDisplay_view = binding.textviewItemNoDisplay;
-                    String length = String.valueOf(itemArray.length-1);
-                    String itemNo = String.format(Locale.getDefault(), "Item #%s/%s", String.valueOf(count), length);
+                    String itemNo = String.format(Locale.getDefault(), "Item #%s/%s", String.valueOf(count), String.valueOf(itemArray.length);
                     itemNoDisplay_view.setText(itemNo);
                 }
                 else {
                     // REDIRECT TO SUMMARY SCREEN
                     System.out.println("FINAL ITEM REACHED");
+                    //Category[] categoryList = initCategories(categories);
+                    //updateCategoryData(itemArray, categoryHashMap);
+                    displaySummary(categoryHashMap);
                 }
             }
         });
