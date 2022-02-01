@@ -14,10 +14,6 @@
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
-
-        <action
-            android:id="@+id/action_FirstFragment_to_ReviewScreen"
-            app:destination="@id/reviewScreen" />
         <argument
             android:name="itemArray"
             app:argType="budgetapp.Item[]"
@@ -86,16 +82,6 @@
             />
         <action
             android:id="@+id/action_SecondFragment_self"
-            app:destination="@id/SecondFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/reviewScreen"
-        android:name="com.example.budgetapp.ReviewScreen"
-        android:label="@string/start_a_review_label"
-        tools:layout="@layout/review_screen">
-
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
     </fragment>
 </navigation>
