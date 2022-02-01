@@ -120,8 +120,6 @@ public class SecondFragment extends Fragment {
                 if ((category = categoryHashMap.get(binding.buttonCat.getText())) != null){
                     category.size++;
                     category.dollarTotal.add(item.amount);
-
-                    System.out.println(category);
                 }
 
                 binding.buttonSkip.performClick();
@@ -132,8 +130,11 @@ public class SecondFragment extends Fragment {
         binding.buttonCat2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Category category = new Category(String.valueOf(binding.buttonCat2.getText()));
-                item.category = category;
+                Category category;
+                if ((category = categoryHashMap.get(binding.buttonCat2.getText())) != null){
+                    category.size++;
+                    category.dollarTotal.add(item.amount);
+                }
 
                 binding.buttonSkip.performClick();
             }
@@ -143,9 +144,11 @@ public class SecondFragment extends Fragment {
         binding.buttonCat3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Category category = new Category(String.valueOf(binding.buttonCat3.getText()));
-                item.category = category;
-
+                Category category;
+                if ((category = categoryHashMap.get(binding.buttonCat3.getText())) != null){
+                    category.size++;
+                    category.dollarTotal.add(item.amount);
+                }
                 binding.buttonSkip.performClick();
             }
 
@@ -154,8 +157,11 @@ public class SecondFragment extends Fragment {
         binding.buttonCat4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Category category = new Category(String.valueOf(binding.buttonCat4.getText()));
-                item.category = category;
+                Category category;
+                if ((category = categoryHashMap.get(binding.buttonCat4.getText())) != null){
+                    category.size++;
+                    category.dollarTotal.add(item.amount);
+                }
 
                 binding.buttonSkip.performClick();
             }
@@ -187,7 +193,7 @@ public class SecondFragment extends Fragment {
                     itemNo_view.setText(String.valueOf(count));
 
                     TextView itemNoDisplay_view = binding.textviewItemNoDisplay;
-                    String itemNo = String.format(Locale.getDefault(), "Item #%s/%s", String.valueOf(count), String.valueOf(itemArray.length);
+                    String itemNo = String.format(Locale.getDefault(), "Item #%s/%s", String.valueOf(count), String.valueOf(itemArray.length));
                     itemNoDisplay_view.setText(itemNo);
                 }
                 else {
