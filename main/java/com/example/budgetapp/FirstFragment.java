@@ -29,17 +29,12 @@ import budgetapp.Item;
 
 public class FirstFragment extends Fragment {
 
-    // FirstFragmentDirections.ActionFirstFragmentToSecondFragment action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(currentCount);
-
     private FragmentFirstBinding binding;
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
-        // Change the title on the Action bar to Screen Title.
-            //ActionBar.setTitle(Integer.parseInt("Start a Review"));
-
 
         binding = FragmentFirstBinding.inflate(inflater, container, false);
         return binding.getRoot();
