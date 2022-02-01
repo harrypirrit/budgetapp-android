@@ -3,7 +3,6 @@ package com.example.budgetapp;
 import static budgetapp.CSVIterator.createData;
 import static budgetapp.CSVIterator.createList;
 import static budgetapp.CSVIterator.filterData;
-import static budgetapp.UserIterator.initCategories;
 
 import android.content.Context;
 import android.content.Intent;
