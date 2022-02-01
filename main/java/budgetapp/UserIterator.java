@@ -18,28 +18,5 @@ public class UserIterator {
 		}
 		return categoryList;
 	}
-
-	/**
-	 * Iterates through the itemlist and sets each Item's category to user input.
-	 * @param itemList
-	 * @param categoryList
-	 * @return
-	 */
-	public static Item[] categorizeItems(ArrayList<Item> itemList, Category[] categoryList, String[] categories){
-		Item[] itemArray;
-
-		for (Item item : itemList){
-			int rInt = R.nextInt(categoryList.length);
-			
-			//random testing data mocking user input
-			String categoryInput = categories[rInt];
-
-			for (Category cat : categoryList){
-				if (categoryInput.equals(cat.name)){ item.category = cat;
-				}
-			}
-
-		}		
-		return itemList.toArray(new Item[0]);
-	}
+	
 }
