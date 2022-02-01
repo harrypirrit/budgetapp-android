@@ -24,6 +24,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+
 import android.content.Context;
 
 import budgetapp.*;
@@ -91,6 +93,11 @@ public class SecondFragment extends Fragment {
         TextView itemNo_view = binding.textviewItemNo;
         itemNo_view.setText(String.valueOf(count));
 
+
+        TextView itemNoDisplay_view = binding.textviewItemNoDisplay;
+        String length = String.valueOf(itemArray.length-1);
+        String itemNo = String.format(Locale.getDefault(), "Item #%s/%s", String.valueOf(count), length);
+        itemNoDisplay_view.setText(itemNo);
 
         // Set Buttons to Current Category Data
         binding.buttonCat.setText(categories[0]);
@@ -168,6 +175,11 @@ public class SecondFragment extends Fragment {
 
                     TextView itemNo_view = binding.textviewItemNo;
                     itemNo_view.setText(String.valueOf(count));
+
+                    TextView itemNoDisplay_view = binding.textviewItemNoDisplay;
+                    String length = String.valueOf(itemArray.length-1);
+                    String itemNo = String.format(Locale.getDefault(), "Item #%s/%s", String.valueOf(count), length);
+                    itemNoDisplay_view.setText(itemNo);
                 }
                 else {
                     // REDIRECT TO SUMMARY SCREEN
