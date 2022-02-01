@@ -114,9 +114,12 @@ public class SecondFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Category category;
+                int count = Integer.parseInt(binding.textviewItemNo.getText().toString());
+                Item item = itemArray[count];
+
                 if ((category = categoryHashMap.get(binding.buttonCat.getText())) != null){
                     category.size++;
-                    category.dollarTotal.add(item.amount);
+                    category.dollarTotal = category.dollarTotal.add(item.amount);
                 }
 
                 binding.buttonSkip.performClick();
@@ -128,9 +131,12 @@ public class SecondFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Category category;
+                int count = Integer.parseInt(binding.textviewItemNo.getText().toString());
+                Item item = itemArray[count];
+
                 if ((category = categoryHashMap.get(binding.buttonCat2.getText())) != null){
                     category.size++;
-                    category.dollarTotal.add(item.amount);
+                    category.dollarTotal = category.dollarTotal.add(item.amount);
                 }
 
                 binding.buttonSkip.performClick();
@@ -142,9 +148,12 @@ public class SecondFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Category category;
+                int count = Integer.parseInt(binding.textviewItemNo.getText().toString());
+                Item item = itemArray[count];
+
                 if ((category = categoryHashMap.get(binding.buttonCat3.getText())) != null){
                     category.size++;
-                    category.dollarTotal.add(item.amount);
+                    category.dollarTotal = category.dollarTotal.add(item.amount);
                 }
                 binding.buttonSkip.performClick();
             }
@@ -155,9 +164,12 @@ public class SecondFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Category category;
+                int count = Integer.parseInt(binding.textviewItemNo.getText().toString());
+                Item item = itemArray[count];
+
                 if ((category = categoryHashMap.get(binding.buttonCat4.getText())) != null){
                     category.size++;
-                    category.dollarTotal.add(item.amount);
+                    category.dollarTotal = category.dollarTotal.add(item.amount);
                 }
 
                 binding.buttonSkip.performClick();
