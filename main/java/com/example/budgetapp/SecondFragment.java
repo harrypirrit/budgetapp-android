@@ -105,11 +105,8 @@ public class SecondFragment extends Fragment {
         binding.buttonCat3.setText(categories[2]);
         binding.buttonCat4.setText(categories[3]);
 
-        // make this initCategories method
-        HashMap<String, Category> categoryHashMap = new HashMap<String, Category>();
-        for (String category : categories){
-            categoryHashMap.put(category, new Category(category));
-        }
+        // define Categories HashMap
+        HashMap<String, Category> categoryHashMap = initCategories(categories);
 
 
         // Category Buttons
