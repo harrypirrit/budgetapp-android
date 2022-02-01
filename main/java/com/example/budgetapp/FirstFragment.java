@@ -64,7 +64,6 @@ public class FirstFragment extends Fragment {
                 String type = "EaRnInG";
                 // String categories = binding.categoryTextview.getText().toString();
                 String[] categories = {"Food", "Rent", "Alcohol", "Other"};
-                
                 String fromDate = binding.fromdateDate.getText().toString();
                 String toDate = binding.todateDate.getText().toString();
 

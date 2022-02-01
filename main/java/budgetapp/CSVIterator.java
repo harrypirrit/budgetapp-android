@@ -74,8 +74,8 @@ public class CSVIterator {
 		try {
 			BufferedReader csvReader = reader;
 			try {
-				while((csvReader.readLine()) != null) {
-					String row = csvReader.readLine();
+				String row = null;
+				while((row = csvReader.readLine()) != null) {
 					data.add(row.split(","));
 				}
 			} catch (IOException e){
@@ -110,7 +110,6 @@ public class CSVIterator {
 				if (description.contains(i)) description = description.replace(i, "");
 			}
 			description = description.replace('"', ' ').trim();
-			System.out.println(System.getProperty("java.version"));
 
 			/** Add attributes into  an Array and feed them into the filtered List to be returned. */
 			String[] attributes = {date, description, amount};
@@ -134,8 +133,6 @@ public class CSVIterator {
 			String date = row[0];
 			String description = row[1];
 			BigDecimal amount = new BigDecimal(row[2]);
-
-
 
 			// Format Date
 			DateFormat originalFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.ENGLISH);
