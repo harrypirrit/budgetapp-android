@@ -33,7 +33,6 @@ import budgetapp.*;
 import static budgetapp.CSVIterator.createData;
 import static budgetapp.CSVIterator.createList;
 import static budgetapp.CSVIterator.filterData;
-import static budgetapp.UserIterator.categorizeItems;
 import static budgetapp.UserIterator.initCategories;
 
 public class SecondFragment extends Fragment {
