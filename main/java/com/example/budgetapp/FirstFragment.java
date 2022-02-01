@@ -98,11 +98,11 @@ public class FirstFragment extends Fragment {
                 int count = 0;
 
                 //UserIterator
-                Category[] categoryList = initCategories();
-                itemArray = categorizeItems(itemList, categoryList);
+                Category[] categoryList = initCategories(categories);
+                itemArray = itemList.toArray(new Item[0]);
 
+                // test -- to be updated
                 String test;
-
                 if (itemList.size() > 0) {
                     test = itemList.get(1).description;
                 }
