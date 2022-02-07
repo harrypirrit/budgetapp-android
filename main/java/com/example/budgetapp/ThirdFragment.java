@@ -108,7 +108,7 @@ public class ThirdFragment extends Fragment {
         // set to current item variables
         TextView date_view = binding.textviewTotalAmount;
         String totalAmount = String.valueOf(summaryGetTotalAmount(categoryArray));
-        date_view.setText(totalAmount);
+        date_view.setText(String.format("Total Amount : $%s", totalAmount));
 
 
     }

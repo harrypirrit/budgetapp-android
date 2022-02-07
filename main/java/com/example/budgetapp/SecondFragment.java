@@ -1,5 +1,6 @@
 package com.example.budgetapp;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +14,6 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.example.budgetapp.databinding.FragmentSecondBinding;
 
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Random;
 
 import budgetapp.*;
@@ -61,7 +61,6 @@ public class SecondFragment extends Fragment {
         String toDate = SecondFragmentArgs.fromBundle(getArguments()).getToDate();
 
         // retrieve variables from Arguments
-
         int count = SecondFragmentArgs.fromBundle(getArguments()).getCount();
         Item[] itemArray = SecondFragmentArgs.fromBundle(getArguments()).getItemArray();
         Item item = itemArray[count];
@@ -74,14 +73,14 @@ public class SecondFragment extends Fragment {
         description_view.setText(item.description);
 
         TextView amount_view = binding.textviewAmount;
-        amount_view.setText(item.amount.toString());
+        amount_view.setText(String.format("$%s", item.amount.toString()));
 
         TextView itemNo_view = binding.textviewItemNo;
         itemNo_view.setText(String.valueOf(count));
 
 
         TextView itemNoDisplay_view = binding.textviewItemNoDisplay;
-        String itemNo = String.format(Locale.getDefault(), "Item #%s/%s", String.valueOf(count), String.valueOf(itemArray.length));
+        String itemNo = String.format("Item #%s/%s", String.valueOf(count), String.valueOf(itemArray.length));
         itemNoDisplay_view.setText(itemNo);
 
         // Set Buttons to Current Category Data
@@ -180,13 +179,13 @@ public class SecondFragment extends Fragment {
                     description_view.setText(item.description);
 
                     TextView amount_view = binding.textviewAmount;
-                    amount_view.setText(item.amount.toString());
+                    amount_view.setText(String.format("$%s", item.amount.toString()));
 
                     TextView itemNo_view = binding.textviewItemNo;
                     itemNo_view.setText(String.valueOf(count));
 
                     TextView itemNoDisplay_view = binding.textviewItemNoDisplay;
-                    String itemNo = String.format(Locale.getDefault(), "Item #%s/%s", String.valueOf(count), String.valueOf(itemArray.length));
+                    String itemNo = String.format("Item #%s/%s", String.valueOf(count), String.valueOf(itemArray.length));
                     itemNoDisplay_view.setText(itemNo);
                 } else {
                     // REDIRECT TO SUMMARY SCREEN
