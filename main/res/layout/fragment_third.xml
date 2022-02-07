@@ -12,14 +12,14 @@
         android:id="@+id/textview_divider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginBottom="32dp"
         android:text="-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "
         android:textColor="@color/black"
         android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textview_top_categories"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textview_total_amount"
@@ -39,14 +39,15 @@
         android:id="@+id/textview_top_categories"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:gravity="center"
         android:text="Top Spending Categories"
         android:textColor="@color/black"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollview_top_categories"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_divider" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button_save"
@@ -91,11 +92,9 @@
         android:id="@+id/scrollview_top_categories"
         android:layout_width="347dp"
         android:layout_height="148dp"
-        android:layout_marginTop="9dp"
         app:layout_constraintBottom_toTopOf="@+id/button_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_top_categories">
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -103,15 +102,16 @@
             android:orientation="vertical" />
     </ScrollView>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="308dp"
-        android:layout_height="288dp"
-        android:layout_marginStart="51dp"
-        android:layout_marginEnd="52dp"
-        android:src="@drawable/screen_shot_2022_02_01_at_11_07_02_pm"
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/pieChart"
+        android:layout_width="301dp"
+        android:layout_height="277dp"
+        android:layout_marginStart="181dp"
+        android:layout_marginTop="134dp"
+        android:layout_marginEnd="181dp"
+        android:layout_marginBottom="122dp"
+        app:layout_constraintBottom_toTopOf="@+id/textview_divider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_total_amount" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
