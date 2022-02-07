@@ -1,15 +1,13 @@
 package budgetapp;
 
-import java.util.ArrayList;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Summary {
-	final String[] CATEGORY_NAMES = new String[5];
-	
 	/**
 	 * Takes Category Data and creates a visual summary of that data.
-	 * @param categoryHashMap
+	 * @param categoryHashMap hashmap of categories
 	 */
 	public static void displaySummary(HashMap<String, Category> categoryHashMap){
 		System.out.println("-------------------------------");
@@ -48,5 +46,13 @@ public class Summary {
 
 		return categoryArray;
 
+	}
+
+	public static BigDecimal summaryGetTotalAmount(Category[] categoryArray){
+		BigDecimal total = new BigDecimal(0);
+		for (Category category : categoryArray){
+			total = total.add(category.dollarTotal);
+		}
+		return total;
 	}
 }
