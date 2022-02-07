@@ -20,6 +20,7 @@ public class Item implements Parcelable {
 		this.amount = amount;
 	}
 
+	// Makes Class Parceable
 	protected Item(Parcel in) {
 		date = in.readString();
 		description = in.readString();
