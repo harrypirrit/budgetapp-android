@@ -14,6 +14,7 @@ import com.example.budgetapp.databinding.FragmentSecondBinding;
 
 import java.util.HashMap;
 import java.util.Locale;
+import java.util.Random;
 
 import budgetapp.*;
 
@@ -49,7 +50,7 @@ public class SecondFragment extends Fragment {
 
     }
 
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState)    {
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         // get Review data
@@ -101,7 +102,7 @@ public class SecondFragment extends Fragment {
                 int count = Integer.parseInt(binding.textviewItemNo.getText().toString());
                 Item item = itemArray[count];
 
-                if ((category = categoryHashMap.get(binding.buttonCat.getText())) != null){
+                if ((category = categoryHashMap.get(binding.buttonCat.getText())) != null) {
                     category.size++;
                     category.dollarTotal = category.dollarTotal.add(item.amount);
                 }
@@ -118,7 +119,7 @@ public class SecondFragment extends Fragment {
                 int count = Integer.parseInt(binding.textviewItemNo.getText().toString());
                 Item item = itemArray[count];
 
-                if ((category = categoryHashMap.get(binding.buttonCat2.getText())) != null){
+                if ((category = categoryHashMap.get(binding.buttonCat2.getText())) != null) {
                     category.size++;
                     category.dollarTotal = category.dollarTotal.add(item.amount);
                 }
@@ -135,7 +136,7 @@ public class SecondFragment extends Fragment {
                 int count = Integer.parseInt(binding.textviewItemNo.getText().toString());
                 Item item = itemArray[count];
 
-                if ((category = categoryHashMap.get(binding.buttonCat3.getText())) != null){
+                if ((category = categoryHashMap.get(binding.buttonCat3.getText())) != null) {
                     category.size++;
                     category.dollarTotal = category.dollarTotal.add(item.amount);
                 }
@@ -151,7 +152,7 @@ public class SecondFragment extends Fragment {
                 int count = Integer.parseInt(binding.textviewItemNo.getText().toString());
                 Item item = itemArray[count];
 
-                if ((category = categoryHashMap.get(binding.buttonCat4.getText())) != null){
+                if ((category = categoryHashMap.get(binding.buttonCat4.getText())) != null) {
                     category.size++;
                     category.dollarTotal = category.dollarTotal.add(item.amount);
                 }
@@ -162,14 +163,13 @@ public class SecondFragment extends Fragment {
         });
 
 
-
         binding.buttonSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int count = Integer.parseInt(binding.textviewItemNo.getText().toString());
                 count++;
 
-                if(count < itemArray.length) {
+                if (count < itemArray.length) {
                     Item item = itemArray[count];
 
                     // set to current item variables
@@ -188,8 +188,7 @@ public class SecondFragment extends Fragment {
                     TextView itemNoDisplay_view = binding.textviewItemNoDisplay;
                     String itemNo = String.format(Locale.getDefault(), "Item #%s/%s", String.valueOf(count), String.valueOf(itemArray.length));
                     itemNoDisplay_view.setText(itemNo);
-                }
-                else {
+                } else {
                     // REDIRECT TO SUMMARY SCREEN
                     System.out.println("FINAL ITEM REACHED");
                     displaySummary(categoryHashMap);
@@ -206,6 +205,27 @@ public class SecondFragment extends Fragment {
             public void onClick(View view) {
                 NavHostFragment.findNavController(SecondFragment.this)
                         .navigate(R.id.action_SecondFragment_to_FirstFragment);
+            }
+        });
+
+        binding.buttonTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Category category;
+                int count = 0;
+                Random rand = new Random();
+
+                for (Item item : itemArray) {
+
+                    // if randomly fetched category from category String is valid, add to the category like it was selected
+                    if ((category = categoryHashMap.get(categories[rand.nextInt(categories.length)])) != null) {
+                        category.size++;
+                        category.dollarTotal = category.dollarTotal.add(item.amount);
+                    }
+                }
+
+                Category[] categoryArray = getCategoryArray(categoryHashMap);
+                NavHostFragment.findNavController(SecondFragment.this).navigate(SecondFragmentDirections.actionSecondFragmentToThirdFragment(itemArray, categoryArray));
             }
         });
     }
