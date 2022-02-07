@@ -35,4 +35,18 @@ public class Summary {
 		}
 
 }
+
+	public static Category[] getCategoryArray(HashMap<String, Category> categoryHashMap){
+		int size = categoryHashMap.size();
+		int count = 0;
+		Category[] categoryArray = new Category[size];
+
+		for (Map.Entry<String, Category> set : categoryHashMap.entrySet()) {
+			categoryArray[count] = set.getValue();
+			count++;
+		}
+
+		return categoryArray;
+
+	}
 }
