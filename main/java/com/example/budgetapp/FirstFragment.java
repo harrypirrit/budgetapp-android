@@ -106,7 +106,6 @@ public class FirstFragment extends Fragment {
                 FirstFragmentDirections.ActionFirstFragmentToSecondFragment action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(itemArray, count, title, type, categories, fromDate, toDate);
 
                 NavHostFragment.findNavController(FirstFragment.this)
-                    //.navigate(R.id.action_FirstFragment_to_SecondFragment);
                       .navigate(action);
             }
         });

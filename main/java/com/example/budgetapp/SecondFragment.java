@@ -19,6 +19,7 @@ import budgetapp.*;
 
 import static budgetapp.UserIterator.initCategories;
 import static budgetapp.Summary.displaySummary;
+import static budgetapp.Summary.getCategoryArray;
 
 public class SecondFragment extends Fragment {
 
@@ -53,7 +54,7 @@ public class SecondFragment extends Fragment {
 
         // get Review data
         String title = SecondFragmentArgs.fromBundle(getArguments()).getTitle();
-        String type = SecondFragmentArgs.fromBundle(getArguments()).getType();;
+        String type = SecondFragmentArgs.fromBundle(getArguments()).getType();
         String[] categories = SecondFragmentArgs.fromBundle(getArguments()).getCategories();
         String fromDate = SecondFragmentArgs.fromBundle(getArguments()).getFromDate();
         String toDate = SecondFragmentArgs.fromBundle(getArguments()).getToDate();
@@ -191,9 +192,11 @@ public class SecondFragment extends Fragment {
                 else {
                     // REDIRECT TO SUMMARY SCREEN
                     System.out.println("FINAL ITEM REACHED");
-                    //Category[] categoryList = initCategories(categories);
-                    //updateCategoryData(itemArray, categoryHashMap);
                     displaySummary(categoryHashMap);
+                    Category[] categoryArray = getCategoryArray(categoryHashMap);
+
+                    NavHostFragment.findNavController(SecondFragment.this).navigate(SecondFragmentDirections.actionSecondFragmentToThirdFragment(itemArray, categoryArray));
+
                 }
             }
         });
