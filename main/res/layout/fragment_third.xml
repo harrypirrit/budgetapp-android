@@ -12,25 +12,27 @@
         android:id="@+id/textview_divider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
         android:text="-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="349dp" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/textview_total_amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="Total Amount : %s"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
@@ -44,7 +46,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="381dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_divider" />
 
     <Button
         android:id="@+id/button_save"
@@ -52,11 +54,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="158dp"
         android:layout_marginEnd="159dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/project_green"
         android:text="Save my Results"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="667dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button_edit"
@@ -64,11 +67,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="158dp"
         android:layout_marginEnd="159dp"
+        android:layout_marginBottom="48dp"
         android:backgroundTint="@color/project_yellow"
         android:text="Edit Items"
+        app:layout_constraintBottom_toBottomOf="@+id/button_save"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="619dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button_view"
@@ -76,11 +80,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="158dp"
         android:layout_marginEnd="159dp"
+        android:layout_marginBottom="48dp"
         android:backgroundTint="@color/gray"
         android:text="View all Items"
+        app:layout_constraintBottom_toBottomOf="@+id/button_edit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="571dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ScrollView
         android:id="@+id/scrollview_top_categories"
@@ -102,8 +107,11 @@
         android:id="@+id/imageView"
         android:layout_width="308dp"
         android:layout_height="288dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginEnd="52dp"
         android:src="@drawable/screen_shot_2022_02_01_at_11_07_02_pm"
-        tools:layout_editor_absoluteX="51dp"
-        tools:layout_editor_absoluteY="43dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_total_amount" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -36,10 +36,11 @@ import budgetapp.*;
 import static budgetapp.CSVIterator.createData;
 import static budgetapp.CSVIterator.createList;
 import static budgetapp.CSVIterator.filterData;
+import static budgetapp.Summary.summaryGetTotalAmount;
 import static budgetapp.UserIterator.initCategories;
 import static budgetapp.Summary.displaySummary;
 
-public class ThirdFragment extends Activity {
+public class ThirdFragment extends Fragment {
 
     private FragmentThirdBinding binding;
 
@@ -52,10 +53,31 @@ public class ThirdFragment extends Activity {
 
 
         /** create bundle for review data */
-        // Bundle bundle = this.getArguments();
+        Bundle bundle = this.getArguments();
 
         return binding.getRoot();
 
+    }
+
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // retrieve variables from Arguments
+        Item[] itemArray = ThirdFragmentArgs.fromBundle(getArguments()).getItemArray();
+        Category[] categoryArray = ThirdFragmentArgs.fromBundle(getArguments()).getCategoryArray();
+
+        // set to current item variables
+        TextView date_view = binding.textviewTotalAmount;
+        String totalAmount = String.valueOf(summaryGetTotalAmount(categoryArray));
+        date_view.setText(totalAmount);
+
+
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 
 }
