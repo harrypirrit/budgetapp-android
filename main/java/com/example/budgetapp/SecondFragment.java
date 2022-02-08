@@ -200,7 +200,7 @@ public class SecondFragment extends Fragment {
                     displaySummary(categoryHashMap);
                     Category[] categoryArray = getCategoryArray(categoryHashMap);
 
-                    NavHostFragment.findNavController(SecondFragment.this).navigate(SecondFragmentDirections.actionSecondFragmentToThirdFragment(itemArray, categoryArray));
+                    NavHostFragment.findNavController(SecondFragment.this).navigate(SecondFragmentDirections.actionSecondFragmentToThirdFragment(itemArray, categoryArray, title));
 
                 }
             }
@@ -231,7 +231,7 @@ public class SecondFragment extends Fragment {
                 }
 
                 Category[] categoryArray = getCategoryArray(categoryHashMap);
-                NavHostFragment.findNavController(SecondFragment.this).navigate(SecondFragmentDirections.actionSecondFragmentToThirdFragment(itemArray, categoryArray));
+                NavHostFragment.findNavController(SecondFragment.this).navigate(SecondFragmentDirections.actionSecondFragmentToThirdFragment(itemArray, categoryArray, title));
             }
         });
 

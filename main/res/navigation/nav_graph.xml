@@ -95,5 +95,9 @@
         <argument
             android:name="categoryArray"
             app:argType="budgetapp.Category[]" />
+        <argument
+            android:name="title"
+            app:argType="string"
+            />
     </fragment>
 </navigation>

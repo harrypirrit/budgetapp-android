@@ -12,7 +12,7 @@
         android:id="@+id/textview_divider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="16dp"
         android:text="-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "
         android:textColor="@color/black"
         android:textSize="24sp"
@@ -21,19 +21,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pieChart" />
 
+
     <TextView
-        android:id="@+id/textview_total_amount"
+        android:id="@+id/textview_review_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Total Amount : %s"
+        android:text="%s"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textview_total_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Total Amount : %s"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textview_top_categories_title"
@@ -53,17 +66,15 @@
         android:layout_width="250dp"
         android:layout_height="137dp"
         android:layout_marginTop="12dp"
-        android:gravity="center"
+        android:background="@android:drawable/editbox_background"
         android:scrollbars="vertical"
         android:text="Top Spending Categories"
         android:textAlignment="textStart"
         android:textColor="@color/black"
-        android:background="@android:drawable/editbox_background"
 
 
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,24 +106,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/button_view"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="158dp"
-        android:layout_marginEnd="159dp"
-        android:backgroundTint="@color/gray"
-        android:text="View all Items"
-        app:layout_constraintBottom_toTopOf="@+id/button_edit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/pieChart"
         android:layout_width="301dp"
         android:layout_height="277dp"
         android:layout_marginStart="181dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="181dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

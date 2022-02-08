@@ -100,6 +100,7 @@ public class ThirdFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         // retrieve variables from Arguments
+        String title = ThirdFragmentArgs.fromBundle(getArguments()).getTitle();
         Item[] itemArray = ThirdFragmentArgs.fromBundle(getArguments()).getItemArray();
         Category[] categoryArray = ThirdFragmentArgs.fromBundle(getArguments()).getCategoryArray();
 
@@ -121,6 +122,11 @@ public class ThirdFragment extends Fragment {
         TextView date_view = binding.textviewTotalAmount;
         String totalAmount = String.valueOf(summaryGetTotalAmount(categoryArray));
         date_view.setText(String.format("Total Amount : $%s", totalAmount));
+
+        TextView review_title = binding.textviewReviewTitle;
+        if(title.length() < 1) {title = "Your Review";}
+        review_title.setText(title);
+
 
         TextView top_categories = binding.textviewTopCategories;
         String ranked = "";

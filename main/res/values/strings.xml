@@ -4,7 +4,7 @@
     <!-- Strings used for fragments for navigation -->
     <string name="start_a_review_label">Start a Review</string>
     <string name="item_review_label">Item Review</string>
-    <string name="review_summary_label">Summary</string>
+    <string name="review_summary_label">Review Summary</string>
 
     <string name="exit">Exit</string>
     <string name="begin">Begin Review</string>
