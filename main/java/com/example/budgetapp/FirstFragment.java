@@ -56,13 +56,13 @@ public class FirstFragment extends Fragment {
                 String title = binding.titleText.getText().toString();
                 String type = "EaRnInG";
                 // String categories = binding.categoryTextview.getText().toString();
-                String[] categories = {"Food", "Rent", "Alcohol", "Other"};
+                String[] categories = {"Food", "School", "Going Out", "Other"};
                 String fromDate = binding.fromdateDate.getText().toString();
                 String toDate = binding.todateDate.getText().toString();
 
                 /** execute backend files from form data */
                 String CSV_Path = "src/main/assets/19Julytestcopy.csv";
-                String FILENAME = "19Julytestcopy.csv";
+                String FILENAME = "19JulytoAugust.csv";
 
                 Context context = getContext();
                 InputStream iS = null;
