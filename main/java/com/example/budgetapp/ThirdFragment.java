@@ -119,6 +119,19 @@ public class ThirdFragment extends Fragment {
         String totalAmount = String.valueOf(summaryGetTotalAmount(categoryArray));
         date_view.setText(String.format("Total Amount : $%s", totalAmount));
 
+        TextView top_categories = binding.textviewTopCategories;
+        String ranked = "";
+        int count = 1;
+
+        for (Category category : categoryArray){
+            String cat = String.format("%s. %s - %s - $%s\n", String.valueOf(count), category.name, "%", String.valueOf(category.dollarTotal.abs()));
+            ranked = ranked + cat;
+            count++;
+        }
+        top_categories.setText(ranked);
+
+
+
 
     }
 
