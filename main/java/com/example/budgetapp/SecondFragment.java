@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -80,7 +81,7 @@ public class SecondFragment extends Fragment {
 
 
         TextView itemNoDisplay_view = binding.textviewItemNoDisplay;
-        String itemNo = String.format("Item #%s/%s", String.valueOf(count), String.valueOf(itemArray.length));
+        String itemNo = String.format("Item #%s/%s", String.valueOf(count+1), String.valueOf(itemArray.length));
         itemNoDisplay_view.setText(itemNo);
 
         // Set Buttons to Current Category Data
@@ -104,6 +105,7 @@ public class SecondFragment extends Fragment {
                 if ((category = categoryHashMap.get(binding.buttonCat.getText())) != null) {
                     category.size++;
                     category.dollarTotal = category.dollarTotal.add(item.amount);
+                    item.category = category;
                 }
 
                 binding.buttonSkip.performClick();
@@ -121,6 +123,7 @@ public class SecondFragment extends Fragment {
                 if ((category = categoryHashMap.get(binding.buttonCat2.getText())) != null) {
                     category.size++;
                     category.dollarTotal = category.dollarTotal.add(item.amount);
+                    item.category = category;
                 }
 
                 binding.buttonSkip.performClick();
@@ -138,6 +141,7 @@ public class SecondFragment extends Fragment {
                 if ((category = categoryHashMap.get(binding.buttonCat3.getText())) != null) {
                     category.size++;
                     category.dollarTotal = category.dollarTotal.add(item.amount);
+                    item.category = category;
                 }
                 binding.buttonSkip.performClick();
             }
@@ -154,6 +158,7 @@ public class SecondFragment extends Fragment {
                 if ((category = categoryHashMap.get(binding.buttonCat4.getText())) != null) {
                     category.size++;
                     category.dollarTotal = category.dollarTotal.add(item.amount);
+                    item.category = category;
                 }
 
                 binding.buttonSkip.performClick();
@@ -185,8 +190,10 @@ public class SecondFragment extends Fragment {
                     itemNo_view.setText(String.valueOf(count));
 
                     TextView itemNoDisplay_view = binding.textviewItemNoDisplay;
-                    String itemNo = String.format("Item #%s/%s", String.valueOf(count), String.valueOf(itemArray.length));
+                    String itemNo = String.format("Item #%s/%s", String.valueOf(count+1), String.valueOf(itemArray.length));
                     itemNoDisplay_view.setText(itemNo);
+
+
                 } else {
                     // REDIRECT TO SUMMARY SCREEN
                     System.out.println("FINAL ITEM REACHED");
@@ -225,6 +232,51 @@ public class SecondFragment extends Fragment {
 
                 Category[] categoryArray = getCategoryArray(categoryHashMap);
                 NavHostFragment.findNavController(SecondFragment.this).navigate(SecondFragmentDirections.actionSecondFragmentToThirdFragment(itemArray, categoryArray));
+            }
+        });
+
+        binding.imageButtonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                int count = Integer.parseInt(binding.textviewItemNo.getText().toString());
+                count--;
+
+                if (count > 0) {
+                    Item item = itemArray[count];
+                    Category category;
+                    String key;
+
+                    // undo previous category data input
+                    try {
+                        key = item.category.name;
+                        category = categoryHashMap.get(key);
+                        category.dollarTotal = category.dollarTotal.subtract(item.amount);
+                        category.size--;
+                    }
+                    catch (NullPointerException e){
+                        System.out.println("NULL");
+                    }
+
+                    // set to current item variables
+                    TextView date_view = binding.textviewDate;
+                    date_view.setText(item.date);
+
+                    TextView description_view = binding.textviewDescription;
+                    description_view.setText(item.description);
+
+                    TextView amount_view = binding.textviewAmount;
+                    amount_view.setText(String.format("$%s", item.amount.toString()));
+
+                    TextView itemNo_view = binding.textviewItemNo;
+                    itemNo_view.setText(String.valueOf(count));
+
+                    TextView itemNoDisplay_view = binding.textviewItemNoDisplay;
+                    String itemNo = String.format("Item #%s/%s", String.valueOf(count+1), String.valueOf(itemArray.length));
+                    itemNoDisplay_view.setText(itemNo);
+                } else {
+                    count++;
+                }
             }
         });
     }
