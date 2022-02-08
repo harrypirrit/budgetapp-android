@@ -1,7 +1,5 @@
 package com.example.budgetapp;
 
-import android.app.Activity;
-import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -27,6 +25,7 @@ import java.util.ArrayList;
 import budgetapp.*;
 
 import static budgetapp.Summary.summaryGetTotalAmount;
+import budgetapp.QuickSort;
 
 public class ThirdFragment extends Fragment {
 
@@ -100,6 +99,14 @@ public class ThirdFragment extends Fragment {
         // retrieve variables from Arguments
         Item[] itemArray = ThirdFragmentArgs.fromBundle(getArguments()).getItemArray();
         Category[] categoryArray = ThirdFragmentArgs.fromBundle(getArguments()).getCategoryArray();
+
+        // sort categoryArray
+        QuickSort qs = new QuickSort();
+        int len = categoryArray.length;
+        qs.sort(categoryArray, 0, len-1);
+        for (Category category : categoryArray){
+            System.out.println(String.format("%s - %s", category.name, category.dollarTotal));
+        }
 
         // Initialise Pie Chart and load entry values
         PieChart pieChart = (PieChart) getView().findViewById(R.id.pieChart);
