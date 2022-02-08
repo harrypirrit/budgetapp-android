@@ -21,6 +21,8 @@ import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 
 import budgetapp.*;
@@ -118,10 +120,12 @@ public class ThirdFragment extends Fragment {
         setupPieChart(pieChart);
 
 
+        BigDecimal category_total = summaryGetTotalAmount(categoryArray);
+
         // set to current item variables
-        TextView date_view = binding.textviewTotalAmount;
-        String totalAmount = String.valueOf(summaryGetTotalAmount(categoryArray));
-        date_view.setText(String.format("Total Amount : $%s", totalAmount));
+        TextView total_amount = binding.textviewTotalAmount;
+        String totalAmount = String.valueOf(category_total);
+        total_amount.setText(String.format("Total Amount : $%s", totalAmount));
 
         TextView review_title = binding.textviewReviewTitle;
         if(title.length() < 1) {title = "Your Review";}
@@ -129,11 +133,14 @@ public class ThirdFragment extends Fragment {
 
 
         TextView top_categories = binding.textviewTopCategories;
+
         String ranked = "";
         int count = 1;
-
         for (Category category : categoryArray){
-            String cat = String.format("%s. %s - %s - $%s\n", String.valueOf(count), category.name, "%", String.valueOf(category.dollarTotal.abs()));
+            BigDecimal percent = category.dollarTotal.divide(category_total, 3, RoundingMode.HALF_EVEN).multiply(BigDecimal.valueOf(100));
+            percent = percent.setScale(1, BigDecimal.ROUND_HALF_UP);
+
+            String cat = String.format("%s. %s - %s - $%s\n", String.valueOf(count), category.name, String.valueOf(percent)+"%", String.valueOf(category.dollarTotal.abs()));
             ranked = ranked + cat;
             count++;
         }

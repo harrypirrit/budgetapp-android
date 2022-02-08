@@ -63,8 +63,8 @@
 
     <TextView
         android:id="@+id/textview_top_categories"
-        android:layout_width="250dp"
-        android:layout_height="137dp"
+        android:layout_width="302dp"
+        android:layout_height="131dp"
         android:layout_marginTop="12dp"
         android:background="@android:drawable/editbox_background"
         android:scrollbars="vertical"
