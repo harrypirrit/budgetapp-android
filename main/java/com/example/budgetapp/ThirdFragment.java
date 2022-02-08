@@ -48,9 +48,11 @@ public class ThirdFragment extends Fragment {
 
     private void loadPieChartData(Category[] categoryArray, PieChart pieChart){
         ArrayList<PieEntry> entries = new ArrayList<>();
-        for (Category category : categoryArray){
+        for (Category category : categoryArray) {
             //entries.add(new PieEntry(category.dollarTotal.floatValue(), category.name));
-            entries.add(new PieEntry(category.dollarTotal.abs().floatValue(), category.name));
+            if (category.dollarTotal.abs().floatValue() != 0) {
+                entries.add(new PieEntry(category.dollarTotal.abs().floatValue(), category.name));
+            }
         }
 
         ArrayList<Integer> colors = new ArrayList<>();
