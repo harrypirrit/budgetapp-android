@@ -137,12 +137,14 @@ public class ThirdFragment extends Fragment {
         String ranked = "";
         int count = 1;
         for (Category category : categoryArray){
-            BigDecimal percent = category.dollarTotal.divide(category_total, 3, RoundingMode.HALF_EVEN).multiply(BigDecimal.valueOf(100));
-            percent = percent.setScale(1, BigDecimal.ROUND_HALF_UP);
+            if (category.dollarTotal.compareTo(BigDecimal.valueOf(0)) != 0) {
+                BigDecimal percent = category.dollarTotal.divide(category_total, 3, RoundingMode.HALF_EVEN).multiply(BigDecimal.valueOf(100));
+                percent = percent.setScale(1, BigDecimal.ROUND_HALF_UP);
 
-            String cat = String.format("%s. %s - %s - $%s\n", String.valueOf(count), category.name, String.valueOf(percent)+"%", String.valueOf(category.dollarTotal.abs()));
-            ranked = ranked + cat;
-            count++;
+                String cat = String.format("%s. %s - %s - $%s\n", String.valueOf(count), category.name, String.valueOf(percent) + "%", String.valueOf(category.dollarTotal.abs()));
+                ranked = ranked + cat;
+                count++;
+            }
         }
         top_categories.setText(ranked);
 
