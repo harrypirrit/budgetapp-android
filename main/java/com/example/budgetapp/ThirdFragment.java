@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 
 
 import com.example.budgetapp.databinding.FragmentThirdBinding;
+import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
@@ -74,6 +75,8 @@ public class ThirdFragment extends Fragment {
 
         pieChart.setData(data);
         pieChart.invalidate();
+
+        pieChart.animateY(1400, Easing.EaseInOutQuad);
     }
 
     private void setupPieChart(PieChart pieChart){
